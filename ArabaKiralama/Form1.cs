@@ -180,5 +180,66 @@ namespace ArabaKiralama
             }
             Listele();
         }
+
+        private void txtMarkaAra_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                baglanti = vtIslemleri.baglan();
+
+                komutSatiri = "SELECT * FROM KiralamaTBL WHERE Marka LIKE '%" + txtMarkaAra.Text + "%'";
+                SqlDataAdapter da = new SqlDataAdapter(komutSatiri, baglanti);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dtpKiralama.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Hata Oluştu");
+            }
+        }
+
+        private void btnResim_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.ShowDialog();
+            pictureBox1.ImageLocation = openFileDialog1.FileName;
+            txtFoto.Text = openFileDialog1.FileName;
+        }
+
+        private void dtpKiralama_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtPlaka.Text = dtpKiralama.CurrentRow.Cells["Plaka"].Value.ToString();
+            txtMarka.Text = dtpKiralama.CurrentRow.Cells["Marka"].Value.ToString();
+            txtModel.Text = dtpKiralama.CurrentRow.Cells["Model"].Value.ToString();
+            txtUretim.Text = dtpKiralama.CurrentRow.Cells["UretimYili"].Value.ToString();
+            txtKm.Text = dtpKiralama.CurrentRow.Cells["KM"].Value.ToString();
+            txtRenk.Text = dtpKiralama.CurrentRow.Cells["Renk"].Value.ToString();
+            cmbYakit.Text = dtpKiralama.CurrentRow.Cells["YakitTuru"].Value.ToString();
+            txtKira.Text = dtpKiralama.CurrentRow.Cells["KiraUcreti"].Value.ToString();
+            cmbDurum.Text = dtpKiralama.CurrentRow.Cells["Durum"].Value.ToString();
+            txtFoto.Text = dtpKiralama.CurrentRow.Cells["Resim"].Value.ToString();
+
+            pictureBox1.ImageLocation = dtpKiralama.CurrentRow.Cells["Resim"].Value.ToString();
+        }
+
+        private void txtUretim_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+
+
+        }
+
+        private void txtKm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+
+        }
+
+        private void txtKira_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+
+        }
     }
 }
