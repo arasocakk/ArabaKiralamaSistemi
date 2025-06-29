@@ -108,5 +108,77 @@ namespace ArabaKiralama
 
             Listele();
         }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                baglanti = vtIslemleri.baglan();
+
+                if (baglanti.State != ConnectionState.Open)
+                {
+                    baglanti.Open();
+                }
+
+                DialogResult result = MessageBox.Show("Silmek istediğinizden emin misiniz?", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                if (result == DialogResult.Yes)
+                {
+                    komutSatiri = "DELETE FROM KiralamaTBL WHERE ID = @id";
+                    komut = new SqlCommand(komutSatiri, baglanti);
+                    komut.Parameters.AddWithValue("@id", dtpKiralama.CurrentRow.Cells["ID"].Value.ToString());
+                    komut.ExecuteNonQuery();
+                    baglanti.Close();
+                }
+                else
+                {
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Hata Oluştu!");
+
+            }
+
+            Listele();
+        }
+
+        private void btnGuncelle_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                baglanti = vtIslemleri.baglan();
+                if (baglanti.State != ConnectionState.Open)
+                {
+                    baglanti.Open();
+                }
+
+                komutSatiri = "UPDATE KiralamaTBL SET Plaka = @plaka,Marka = @marka,Model = @model, UretimYili = @uretim, KM = @km, Renk = @renk, YakitTuru = @yakitTuru, KiraUcreti = @kiraUcreti, Durum =  @durum, Resim = @resim WHERE ID=@id";
+                komut = new SqlCommand(komutSatiri, baglanti);
+
+                komut.Parameters.AddWithValue("@id", dtpKiralama.CurrentRow.Cells["ID"].Value.ToString());
+                komut.Parameters.AddWithValue("@plaka", txtPlaka.Text);
+                komut.Parameters.AddWithValue("@marka", txtMarka.Text);
+                komut.Parameters.AddWithValue("@model", txtModel.Text);
+                komut.Parameters.AddWithValue("@uretim", txtUretim.Text);
+                komut.Parameters.AddWithValue("@km", txtKm.Text);
+                komut.Parameters.AddWithValue("@renk", txtRenk.Text);
+                komut.Parameters.AddWithValue("@yakitTuru", cmbYakit.Text);
+                komut.Parameters.AddWithValue("@kiraUcreti", txtKira.Text);
+                komut.Parameters.AddWithValue("@durum", cmbDurum.Text);
+                komut.Parameters.AddWithValue("@resim", txtFoto.Text);
+
+                komut.ExecuteNonQuery();
+                baglanti.Close();
+                MessageBox.Show("Güncelleme İşlemi Başarılı");
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Hata Oluştu!");
+            }
+            Listele();
+        }
     }
 }
