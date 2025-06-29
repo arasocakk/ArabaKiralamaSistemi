@@ -1,0 +1,11 @@
+C:\Users\isken\Desktop\ArabaKiralama\ArabaKiralama\ArabaKiralama\bin\Debug\ArabaKiralama.exe.config
+C:\Users\isken\Desktop\ArabaKiralama\ArabaKiralama\ArabaKiralama\bin\Debug\ArabaKiralama.exe
+C:\Users\isken\Desktop\ArabaKiralama\ArabaKiralama\ArabaKiralama\bin\Debug\ArabaKiralama.pdb
+C:\Users\isken\Desktop\ArabaKiralama\ArabaKiralama\ArabaKiralama\obj\Debug\ArabaKiralama.csproj.AssemblyReference.cache
+C:\Users\isken\Desktop\ArabaKiralama\ArabaKiralama\ArabaKiralama\obj\Debug\ArabaKiralama.Form1.resources
+C:\Users\isken\Desktop\ArabaKiralama\ArabaKiralama\ArabaKiralama\obj\Debug\ArabaKiralama.Properties.Resources.resources
+C:\Users\isken\Desktop\ArabaKiralama\ArabaKiralama\ArabaKiralama\obj\Debug\ArabaKiralama.csproj.GenerateResource.cache
+C:\Users\isken\Desktop\ArabaKiralama\ArabaKiralama\ArabaKiralama\obj\Debug\ArabaKiralama.csproj.CoreCompileInputs.cache
+C:\Users\isken\Desktop\ArabaKiralama\ArabaKiralama\ArabaKiralama\obj\Debug\ArabaKiralama.exe
+C:\Users\isken\Desktop\ArabaKiralama\ArabaKiralama\ArabaKiralama\obj\Debug\ArabaKiralama.pdb
+C:\Users\isken\Desktop\ArabaKiralama\ArabaKiralama\ArabaKiralama\obj\Debug\ArabaKiralama.exe.config
